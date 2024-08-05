@@ -12,7 +12,7 @@ module.exports = {
       ownerId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "users", // Name of the users table
+          model: "user", // Name of the users table
           key: "id",
         },
         onDelete: "CASCADE", // Optional: Adjust the behavior on delete
@@ -20,7 +20,7 @@ module.exports = {
       rentalId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "rentals", // Name of the rentals table
+          model: "rental", // Name of the rentals table
           key: "id",
         },
         onDelete: "CASCADE", // Optional: Adjust the behavior on delete
@@ -38,6 +38,9 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
+        type: Sequelize.DATE,
+      },
+      deletedAt: {
         type: Sequelize.DATE,
       },
     });

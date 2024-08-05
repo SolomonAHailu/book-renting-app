@@ -13,7 +13,7 @@ module.exports = sequelize.define(
     ownerId: {
       type: DataTypes.INTEGER,
       references: {
-        model: "users", // Name of the users table
+        model: "user", // Name of the users table
         key: "id",
       },
       onDelete: "CASCADE", // Optional: Adjust the behavior on delete
@@ -21,7 +21,7 @@ module.exports = sequelize.define(
     rentalId: {
       type: DataTypes.INTEGER,
       references: {
-        model: "rentals", // Name of the rentals table
+        model: "rental", // Name of the rentals table
         key: "id",
       },
       onDelete: "CASCADE", // Optional: Adjust the behavior on delete
@@ -41,10 +41,13 @@ module.exports = sequelize.define(
       allowNull: false,
       type: DataTypes.DATE,
     },
+    deletedAt: {
+      type: DataTypes.DATE,
+    },
   },
   {
     paranoid: true,
     freezeTableName: true,
-    modelName: "user",
+    modelName: "transaction",
   }
 );
