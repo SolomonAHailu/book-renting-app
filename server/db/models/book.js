@@ -14,54 +14,69 @@ module.exports = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notNull: { msg: "title cannot be null" },
-        notEmpty: { msg: "title cannot be empty" },
+        notNull: { msg: "Title cannot be null" },
+        notEmpty: { msg: "Title cannot be empty" },
       },
     },
     bookImage: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
       validate: {
-        notNull: { msg: "bookImage cannot be null" },
-        isUrl: { msg: "bookImage must be a url" },
+        notNull: { msg: "Book image cannot be null" },
+        isUrl: { msg: "Each book image must be a valid URL" },
       },
     },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
-        notNull: { msg: "price cannot be null" },
-        isDecimal: { msg: "price must be in decimal" },
+        notNull: { msg: "Price cannot be null" },
+        isDecimal: { msg: "Price must be a decimal" },
       },
     },
     description: {
       type: DataTypes.TEXT,
+      allowNull: true,
     },
     category: {
       type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+      defaultValue: ["all"],
+      validate: {
+        notNull: { msg: "Category cannot be null" },
+      },
     },
     createdBy: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "user",
         key: "id",
       },
+      validate: {
+        notNull: { msg: "CreatedBy cannot be null" },
+        isInt: { msg: "CreatedBy must be an integer" },
+      },
     },
     status: {
       type: DataTypes.ENUM("available", "rented"),
-      defaultValue: "available",
       allowNull: false,
+      defaultValue: "available",
+      validate: {
+        notNull: { msg: "Status cannot be null" },
+      },
     },
     createdAt: {
-      allowNull: false,
       type: DataTypes.DATE,
+      allowNull: false,
     },
     updatedAt: {
-      allowNull: false,
       type: DataTypes.DATE,
+      allowNull: false,
     },
     deletedAt: {
       type: DataTypes.DATE,
+      allowNull: true, // DeletedAt is optional
     },
   },
   {

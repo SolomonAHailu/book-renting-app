@@ -89,6 +89,7 @@ module.exports = sequelize.define(
     status: {
       type: DataTypes.ENUM("active", "inactive"),
       defaultValue: "inactive",
+      allowNull: false,
     },
     createdAt: {
       allowNull: false,
