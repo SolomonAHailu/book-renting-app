@@ -167,4 +167,10 @@ const getUserRevenue = catchAsync(async (req, res, next) => {
   });
 });
 
-module.exports = { createBook, updateBook, removeBook, listUserBooks };
+module.exports = {
+  createBook,
+  updateBook,
+  removeBook,
+  listUserBooks,
+  getUserRevenue,
+};

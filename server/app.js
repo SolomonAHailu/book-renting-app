@@ -1,8 +1,10 @@
 require("dotenv").config({ path: `${process.cwd()}/.env` });
 const express = require("express");
 const authRouter = require("./route/authRoute");
+constadminRouter = require("./route/adminRoute");
 const bookRouter = require("./route/bookRoute");
-const transactionRouter = require("./route/");
+// const transactionRouter = require("./route/");
+const lesseeRoutes = require("./routes/lesseeRoutes");
 const catchAsync = require("./utils/catchAsync");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controller/errorController");
@@ -13,7 +15,9 @@ app.use(express.json());
 // all routes will be here
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/books", bookRouter);
-// app.use("/api/v1/transactions", transactionRouter);
+app.use("/api/v1/admin", adminRouter);
+app.use("/api/v1/owners", adminRouter);
+app.use("/lessee", lesseeRoutes);
 
 app.use(
   "*",
