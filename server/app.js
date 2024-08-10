@@ -6,6 +6,7 @@
 
 
 
+
 require("dotenv").config({ path: `${process.cwd()}/.env` });
 const express = require("express");
 const authRouter = require("./route/authRoute");
