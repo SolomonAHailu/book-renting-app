@@ -1,6 +1,5 @@
 require("dotenv").config({ path: `${process.cwd()}/.env` });
 const user = require("../db/models/user");
-
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const catchAsync = require("../utils/catchAsync");
