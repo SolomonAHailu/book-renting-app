@@ -5,7 +5,6 @@
 
 
 
-
 // const { defineAbilitiesFor } = require("../utils/abilities");
 // const rental = require("../db/models/rental");
 // const book = require("../db/models/book");
