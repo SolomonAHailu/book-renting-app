@@ -1,4 +1,4 @@
-s
+
 
 
 require("dotenv").config({ path: `${process.cwd()}/.env` });
