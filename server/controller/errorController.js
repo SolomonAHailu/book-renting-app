@@ -1,6 +1,5 @@
 
 
-
 const AppError = require("../utils/appError");
 const sendErrorDev = (err, res) => {
 const statusCode = err.statusCode || 500;
