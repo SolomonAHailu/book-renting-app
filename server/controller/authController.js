@@ -12,7 +12,6 @@ const generateToken = (payload) => {
   });
 };
 
-
 const signup = catchAsync(async (req, res) => {
   const body = req.body;
 
